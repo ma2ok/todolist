@@ -35,7 +35,12 @@ $todos = $todoApp->getAll();
         <span class="todo_title <?php if ($todo->state === '1') { echo 'done'; } ?>"><?= h($todo->title); ?></span>
         <div class="delete_todo">x</div>
       </li>
-    <?php endforeach; ?>
+      <?php endforeach; ?>
+      <li id="todo_template" data-id="">
+        <input type="checkbox" class="update_todo">
+        <span class="todo_title"></span>
+        <div class="delete_todo">x</div>
+      </li>
     </ul>
   </div>
   <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">

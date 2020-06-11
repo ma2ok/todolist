@@ -1,6 +1,7 @@
 $(function() {
   'use strict';
-
+  $('#new_todo').focus();
+  
   // update
   $('#todos').on('click', '.update_todo', function() {
     // idを取得
