@@ -24,7 +24,7 @@ $todos = $todoApp->getAll();
 <body>
   <div id="container">
     <h1>Todoリスト</h1>
-    <form action="">
+    <form action="" id="new_todo_form">
       <input type="text" id="new_todo" placeholder="">
       <input type= "submit" value= "投稿">
     </form>

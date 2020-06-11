@@ -34,4 +34,19 @@ $(function() {
       });
     }
   });
+
+    // create
+    $('#new_todo_form').on('submit', function() {
+      // titleを取得
+      var title = $('#new_todo').val();
+      // ajax処理
+      $.post('_ajax.php', {
+        title: title,
+        mode: 'create',
+        token: $('#token').val()
+      }, function(res) {
+        // liを追加
+      });
+      return false;
+    });
 });
