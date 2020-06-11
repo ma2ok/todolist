@@ -26,15 +26,17 @@ $todos = $todoApp->getAll();
       <input type="text" id="new_todo" placeholder="">
       <input type= "submit" value= "投稿">
     </form>
-    <ul>
+    <ul id="#todos">
     <?php foreach ($todos as $todo) : ?>
-      <li>
-        <input type="checkbox" <?php if ($todo->state === '1') { echo 'checked'; } ?>>
-        <span class="<?php if ($todo->state === '1') { echo 'done'; } ?>"><?= h($todo->title); ?></span>
+      <li id="todo_<?= h($todo->id); ?>" data-id="<?= h($todo->id); ?>">
+      <input type="checkbox" class="update_todo" <?php if ($todo->state === '1') { echo 'checked'; } ?>>
+      <span class="todo_title <?php if ($todo->state === '1') { echo 'done'; } ?>"><?= h($todo->title); ?></span>
         <div class="delete_todo">x</div>
       </li>
     <?php endforeach; ?>
     </ul>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="todo.js"></script>
 </body>
 </html>
