@@ -23,18 +23,20 @@ ul > li {
   padding-bottom: 6px;
 }
 
+#form ul li{ 	
+  display: inline;
+} 
+
 #new_todo {
   padding: 8px;
   border-radius: 3px;
-  width: 490px;
+  width: 430px;
   margin: 0 auto 15px;
   font-size: 16px;
 }
 
 .delete_todo {
-  float: right;
   display: inline-block;
-  color: #ccc;
   cursor: pointer;
 }
 

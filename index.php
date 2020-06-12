@@ -25,19 +25,21 @@ $todos = $todoApp->getAll();
   <div id="container">
     <h1>Todoリスト</h1>
     <form action="" id="new_todo_form">
-      <input type="text" id="new_todo" placeholder="">
-      <input type= "submit" value= "投稿">
+    <div id="form">
+      <ul>
+    <li><input type= "text" id="new_todo"></li>
+    <li><input type= "submit" value= "投稿"></li>
+  </ul>
+    </div>
     </form>
     <ul id="todos">
     <?php foreach ($todos as $todo) : ?>
       <li id="todo_<?= h($todo->id); ?>" data-id="<?= h($todo->id); ?>">
-        <input type="checkbox" class="update_todo" <?php if ($todo->state === '1') { echo 'checked'; } ?>>
         <span class="todo_title <?php if ($todo->state === '1') { echo 'done'; } ?>"><?= h($todo->title); ?></span>
-        <div class="delete_todo">x</div>
+        <input class="delete_todo" type= "submit" value= "削除">
       </li>
       <?php endforeach; ?>
       <li id="todo_template" data-id="">
-        <input type="checkbox" class="update_todo">
         <span class="todo_title"></span>
         <div class="delete_todo">x</div>
       </li>
