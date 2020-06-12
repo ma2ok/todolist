@@ -36,18 +36,36 @@ $(function() {
     }
   });
 
-    // create
-    $('#new_todo_form').on('submit', function() {
-      // titleを取得
-      var title = $('#new_todo').val();
-      // ajax処理
-      $.post('_ajax.php', {
-        title: title,
-        mode: 'create',
-        token: $('#token').val()
-      }, function(res) {
-        // liを追加
+  // create
+  $('#new_todo_form').on('submit', function() {
+    // titleを取得
+    var title = $('#new_todo').val();
+    // ajax処理
+    $.post('_ajax.php', {
+      title: title,
+      mode: 'create',
+      token: $('#token').val()
+    }, function(res) {
+      // liを追加
+      var $li = $('#todo_template').clone();
+      $li
+        .attr('id', 'todo_' + res.id)
+        .data('id', res.id)
+        .find('.todo_title').text(title);
+      $('#todos').prepend($li.fadeIn());
+      $('#new_todo').val('').focus();
+    });
+    return false;
+  });
+
+    $(function(){
+      $('#submit_btn').on('click', function(){
+        if($('#new_todo').val() === ''){
+          alert('0文字は入力できません');
+          $('#new_todo').focus();
+          return false;
+        }
+        alert('送信完了！');
       });
-      return false;
     });
 });

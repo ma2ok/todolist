@@ -26,9 +26,8 @@ $todos = $todoApp->getAll();
     <h1>Todoリスト</h1>
     <form action="" id="new_todo_form">
     <div id="form">
-      <ul>
-    <li><input type= "text" id="new_todo"></li>
-    <li><input type= "submit" value= "投稿"></li>
+    <input type= "text" id="new_todo">  
+    <input id="submit_btn" type="submit">
   </ul>
     </div>
     </form>
@@ -41,7 +40,7 @@ $todos = $todoApp->getAll();
       <?php endforeach; ?>
       <li id="todo_template" data-id="">
         <span class="todo_title"></span>
-        <div class="delete_todo">x</div>
+        <input class="delete_todo" type= "submit" value= "削除">
       </li>
     </ul>
   </div>
